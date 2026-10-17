@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#4c1d95">
+<title>Heisen | Mes liens</title>
+<style>
+:root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;color:#fff}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 20% 10%,#b56df9 0,transparent 38%),radial-gradient(circle at 85% 85%,#4f46e5 0,transparent 42%),linear-gradient(145deg,#6728b8,#30105d);display:flex;justify-content:center;align-items:center;padding:32px 16px}.wrap{width:min(100%,440px);text-align:center}.avatar{width:96px;height:96px;border-radius:50%;background:linear-gradient(135deg,#e9b5ff,#9b5cf6);border:3px solid #ffffffaa;display:grid;place-items:center;font-size:46px;font-weight:800;margin:0 auto 16px;box-shadow:0 12px 40px #18002f55}h1{font-size:34px;letter-spacing:-1px;margin:0 0 8px}p{color:#eee0ff;margin:0 0 32px;line-height:1.6}.links{display:grid;gap:13px}.link{display:block;text-decoration:none;background:#ffffffeb;color:#431476;padding:17px 22px;border-radius:17px;font-weight:750;box-shadow:0 8px 20px #20003835;transition:transform .2s,background .2s}.link:hover{transform:translateY(-3px);background:#fff}.empty{padding:22px;border:1px dashed #ffffff8a;background:#ffffff19;border-radius:18px;color:#f7ecff}footer{margin-top:40px;font-size:12px;color:#dfc9f6}
+</style>
+</head>
+<body>
+<main class="wrap"><div class="avatar">H</div><h1>Heisen</h1><p>Bienvenue sur ma page ! Retrouve tous mes liens ici ✨</p><div class="links" id="links"></div><footer>© 2026 Heisen</footer></main>
+<script>
+// Ajoute tes liens ici. Exemple : { titre: "Instagram", url: "https://instagram.com/tonpseudo" }
+const liens = [
+];
+const zone = document.getElementById('links');
+if (!liens.length) { const info = document.createElement('div'); info.className='empty'; info.textContent='Mes liens arrivent bientôt 🚀'; zone.appendChild(info); }
+for (const lien of liens) { if (!/^https:\/\//i.test(lien.url)) continue; const a=document.createElement('a'); a.className='link'; a.href=lien.url; a.target='_blank'; a.rel='noopener noreferrer'; a.textContent=lien.titre; zone.appendChild(a); }
+</script>
+</body>
+</html>
