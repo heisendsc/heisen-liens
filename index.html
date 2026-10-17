@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#5424b8">
+  <meta name="description" content="Tous les liens de Heisen au même endroit.">
+  <title>Heisen — Mes liens</title>
+  <style>
+    :root {color-scheme:dark; font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+    * {box-sizing:border-box}
+    body {margin:0;min-height:100vh;color:white;background:radial-gradient(circle at 18% 12%,#a56cff 0,transparent 34%),radial-gradient(circle at 85% 88%,#ff64b2 0,transparent 35%),linear-gradient(145deg,#43239c,#702cd3 55%,#a33dc7);display:flex;justify-content:center;align-items:center;padding:48px 18px}
+    main {width:min(100%,440px);text-align:center}
+    .avatar {width:100px;height:100px;border-radius:50%;display:grid;place-items:center;margin:0 auto 18px;background:linear-gradient(145deg,#f6b6ff,#7652ef);border:4px solid #ffffff99;box-shadow:0 14px 36px #21054c55;font-size:42px;font-weight:800}
+    h1 {font-size:clamp(32px,7vw,43px);letter-spacing:-1.6px;margin:0 0 10px}
+    .bio {opacity:.91;line-height:1.6;margin:0 auto 32px;max-width:340px}
+    .links {display:grid;gap:14px}
+    .link {text-decoration:none;color:#30135d;background:#fff;display:flex;align-items:center;justify-content:center;min-height:64px;border-radius:18px;padding:16px 22px;font-weight:750;font-size:17px;box-shadow:0 9px 0 #35126b45,0 15px 24px #2e0c6940;transition:transform .2s,box-shadow .2s}
+    .link:hover {transform:translateY(-3px);box-shadow:0 12px 0 #35126b45,0 19px 28px #2e0c6940}
+    .link:focus-visible {outline:3px solid #fff;outline-offset:4px}
+    .empty {border:1px dashed #ffffffaa;border-radius:18px;padding:25px 18px;background:#ffffff1b;line-height:1.65}
+    footer {margin-top:44px;font-size:13px;color:#ffffffb9}
+    @media(prefers-reduced-motion:reduce){.link{transition:none}}
+  </style>
+</head>
+<body>
+  <main>
+    <div class="avatar" aria-hidden="true">H</div>
+    <h1>Heisen</h1>
+    <p class="bio">Bienvenue sur ma page ! Retrouve tous mes liens ici ✨</p>
+    <nav class="links" id="links" aria-label="Mes liens"></nav>
+    <footer>© <span id="year"></span> Heisen</footer>
+  </main>
+  <script>
+    // AJOUTE TES LIENS ICI. Exemple :
+    // { titre: "Mon Instagram", url: "https://instagram.com/monpseudo" },
+    const liens = [
+    ];
+
+    const zone = document.getElementById('links');
+    document.getElementById('year').textContent = new Date().getFullYear();
+    if (liens.length === 0) {
+      const message = document.createElement('div');
+      message.className = 'empty';
+      message.textContent = 'Mes liens arrivent bientôt 🚀';
+      zone.appendChild(message);
+    }
+    for (const lien of liens) {
+      if (!/^https?:\/\//i.test(lien.url)) continue;
+      const a = document.createElement('a');
+      a.className = 'link';
+      a.href = lien.url;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.textContent = lien.titre;
+      zone.appendChild(a);
+    }
+  </script>
+</body>
+</html>
